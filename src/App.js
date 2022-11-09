@@ -1,10 +1,14 @@
+import React from "react";
 import "./App.css";
+import { Landing } from "./components/Landing";
+import { Header } from "./components/Header";
 
 function App() {
   return (
-    <div>
-      <h1 className="text-3xl font-bold underline">Hola Mundo</h1>
-    </div>
+    <>
+      <Header />
+      <Landing />
+    </>
   );
 }
 
