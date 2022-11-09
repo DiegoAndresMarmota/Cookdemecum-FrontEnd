@@ -5,7 +5,6 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import { AiFillHome, AiFillPlusSquare } from "react-icons/ai";
 import { logout } from "../actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
-import u from "../media/cpu.png";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -27,7 +26,7 @@ export const Header = () => {
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="#">
               <span className="sr-only">Your Company</span>
-              <img className="h-12 w-auto sm:h-12" src={u} alt="" />
+              {/*<img className="h-12 w-auto sm:h-12" src={ImagenX} alt="" /> */}
             </a>
           </div>
           <div className="-my-2 -mr-2 md:hidden">
