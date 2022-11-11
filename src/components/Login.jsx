@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../actions/userActions";
 import { useNavigate } from "react-router";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
+import Messages from '../components/Messages';
+import Loader from '../components/Loader';
 
 export default function Login() {
     const [email, setEmail] = useState("");
