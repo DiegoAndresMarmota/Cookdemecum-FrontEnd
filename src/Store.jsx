@@ -15,3 +15,13 @@ const userInfoStorage = localStorage.getItem("userInfo")
 const initialState = {
   userLogin: { userInfo: userInfoStorage },
 };
+
+const middleware = [thunk];
+
+const store = createStore(
+  store,
+  initialState,
+  composeWithDevTools(applyMiddleware(...middleware))
+);
+
+export default store;
