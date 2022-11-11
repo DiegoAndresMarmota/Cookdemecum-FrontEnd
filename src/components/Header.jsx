@@ -10,13 +10,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export const Header = () => {
-  const userLogin = useSelector((state) => state.userLogin);
-
-  const { userInfo } = userLogin;
-
+export default function Header() {
   const dispatch = useDispatch();
-
   const logoutHandler = () => dispatch(logout());
 
   return (
@@ -252,4 +247,4 @@ export const Header = () => {
       </Transition>
     </Popover>
   );
-};
+}

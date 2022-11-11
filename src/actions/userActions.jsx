@@ -19,6 +19,11 @@ import {
   USER_LIST_FAIL,
 } from "../constants/userConstants";
 
+export const logout = () => (disptach) => {
+  localStorage.removeItem("userInfo");
+  disptach({ type: USER_LOGOUT });
+};
+
 export const register = (user_name, email, password) => async (dispatch) => {
   try {
     dispatch({ type: USER_REGISTER_REQUEST });
