@@ -2,8 +2,18 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Messages from "./Messages";
 import Loader from "./Loader";
+import { getListUsers } from "../actions/userActions";
 
 export default function Feed() {
+  const dispatch = useDispatch();
+  const userList = useSelector((state) => state.userList);
+  const { users } = userList;
+
+  useEffect(() => {
+    dispatch(listBlogs());
+    dispatch(getListUsers());
+  }, [dispatch]);
+
   return (
     <div className="py-10 bg-gray-200">
       <div className="py-8">
