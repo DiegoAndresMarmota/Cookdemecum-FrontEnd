@@ -3,15 +3,18 @@ import { useDispatch, useSelector } from "react-redux";
 import Messages from "./Messages";
 import Loader from "./Loader";
 import { getListUsers } from "../actions/userActions";
+import { listBlogs } from "../actions/blogActions";
 
 export default function Feed() {
   const dispatch = useDispatch();
   const userList = useSelector((state) => state.userList);
   const { users } = userList;
+  const blogList = useSelector((state) => state.blogList);
+  const { error, loading, blogs } = blogList;
 
   useEffect(() => {
-    dispatch(listBlogs());
     dispatch(getListUsers());
+    dispatch(listBlogs());
   }, [dispatch]);
 
   return (
