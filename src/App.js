@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import PrivateRoute from "./components/PrivateRoute";
+import MiPerfil from "./components/MiPerfil";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Header />
       <Routes>
         <Route element={<PrivateRoute />}>
-          
+          <Route path="/miPerfil" element={<MiPerfil />} />
         </Route>
 
         <Route path="/landing" element={<Landing />} />
