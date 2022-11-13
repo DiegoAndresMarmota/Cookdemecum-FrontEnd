@@ -4,6 +4,10 @@ import Loader from "./Loader";
 import Messages from "./Messages";
 import { listBlogs } from "../actions/blogActions";
 
+//Iconos
+import { AiFillEdit } from "react-icons/ai";
+import { BsFillTrashFill } from "react-icons/bs";
+
 export default function MiPerfil() {
   const dispatch = useDispatch();
 
