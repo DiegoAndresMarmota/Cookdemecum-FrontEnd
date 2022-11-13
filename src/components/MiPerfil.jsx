@@ -71,6 +71,60 @@ export default function MiPerfil() {
       <h2 className="mt-6 mb-6 text-center text-3xl font-bold tracking-tight text-gray-900">
         -- Blogueos --
       </h2>
+      {blogs.map((blog) => (
+        <>
+          {userInfo.user_name === blog.user && (
+            <div className="py-20 bg-gray-200">
+              <div className=" px-10">
+                <div className="max-w-md mx-auto bg-white shadow-lg rounded-md overflow-hidden md:max-w-md">
+                  <div className="md:flex">
+                    <div className="w-full">
+                      <div
+                        key={blog.id}
+                        class="flex justify-between items-center m-8"
+                      >
+                        <div className="flex flex-row items-center">
+                          <img
+                            src={`http://127.0.0.1:8000${userInfo.image}`}
+                            class="rounded-full"
+                            width="40"
+                          />
+                          <div className="flex flex-row items-center ml-2">
+                            <span className="font-bold mr-1">{blog.user}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div></div>
+                      <div className="p-4 flex justify-between items-center">
+                        <p>{blog.body}</p>
+                      </div>
+                      <div class="p-4 flex justify-between items-center">
+                        <div class="flex flex-row items-center">
+                          <a
+                            href={`/editBlog/${blog.id}`}
+                            className="group mx-6 relative flex  justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                          >
+                            {" "}
+                            <AiFillEdit size={30} />
+                          </a>
+
+                          <button
+                            onClick={() => deleteHandler(blog.id)}
+                            className="group relative flex  justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                          >
+                            {" "}
+                            <BsFillTrashFill size={30} />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      ))}
     </div>
   );
 }
