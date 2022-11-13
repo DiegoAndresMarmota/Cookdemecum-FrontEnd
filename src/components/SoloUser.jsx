@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getSoloUser } from "../actions/userActions";
+import { listBlogs } from "../actions/blogActions";
 
 import Messages from "./Messages";
 import Loader from "./Loader";
@@ -13,6 +14,9 @@ export default function SoloUser() {
 
   const userSolo = useSelector((state) => state.userSolo);
   const { loading, error, user } = userSolo;
+
+  const blogList = useSelector((state) => state.blogList);
+  const { error: errorBlog, loading: blogLoading, blogs } = blogList;
 
   useEffect(() => {
     dispatch(getSoloUser(id));
