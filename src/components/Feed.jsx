@@ -49,7 +49,7 @@ export default function Feed() {
                                     <small className="h-1 w-1 bg-gray-300 rounded-full mr-1 mt-1"></small>
                                     <a
                                       style={{ textDecoration: "none" }}
-                                      href={`/userProfile/${user.id}`}
+                                      href={`/soloUser/${user.id}`}
                                       className="text-blue-600 text-sm hover:text-blue-800"
                                     >
                                       Ver Perfil

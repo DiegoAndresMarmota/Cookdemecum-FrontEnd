@@ -10,6 +10,7 @@ import Register from "./components/Register";
 import PrivateRoute from "./components/PrivateRoute";
 import MiPerfil from "./components/MiPerfil";
 import Feed from "./components/Feed";
+import SoloUser from "./components/SoloUser";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route path="/" exact element={<Feed />} />
           <Route path="/miPerfil" element={<MiPerfil />} />
+          <Route path="/soloUser/:id" element={<SoloUser />} />
         </Route>
 
         <Route path="/landing" element={<Landing />} />

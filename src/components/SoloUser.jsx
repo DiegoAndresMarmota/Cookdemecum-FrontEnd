@@ -6,7 +6,7 @@ import { getSoloUser } from "../actions/userActions";
 import Messages from "./Messages";
 import Loader from "./Loader";
 
-export default function UserProfile() {
+export default function SoloUser() {
   const { id } = useParams();
 
   const dispatch = useDispatch();
