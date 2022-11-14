@@ -9,7 +9,11 @@ import {
   userListReducer,
 } from "./reducers/userReducers";
 
-import { blogListReducer, blogCreateReducer } from "./reducers/blogReducers";
+import {
+  blogListReducer,
+  blogCreateReducer,
+  blogDetailsReducer,
+} from "./reducers/blogReducers";
 
 const reducer = combineReducers({
   //Usuario
@@ -21,6 +25,7 @@ const reducer = combineReducers({
   //Blog
   blogList: blogListReducer,
   blogCreate: blogCreateReducer,
+  soloBlog: blogDetailsReducer,
 });
 
 const userInfoStorage = localStorage.getItem("userInfo")
