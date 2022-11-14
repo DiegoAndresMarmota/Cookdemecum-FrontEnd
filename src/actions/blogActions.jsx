@@ -20,7 +20,6 @@ import {
   BLOG_DELETE_FAIL,
 } from "../constants/blogConstants";
 
-
 export const listBlogs = () => async (dispatch, getState) => {
   try {
     dispatch({ type: BLOG_LIST_REQUEST });
@@ -48,6 +47,44 @@ export const listBlogs = () => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: BLOG_LIST_FAIL,
+      payload:
+        error.response && error.response.data.detail
+          ? error.response.data.detail
+          : error.message,
+    });
+  }
+};
+
+export const createBlogAction = (body) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: BLOG_CREATE_REQUEST,
+    });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.post(
+      `http://127.0.0.1:8000/blogs/post/`,
+      { body: body },
+      config
+    );
+
+    dispatch({
+      type: BLOG_CREATE_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: BLOG_CREATE_FAIL,
       payload:
         error.response && error.response.data.detail
           ? error.response.data.detail
