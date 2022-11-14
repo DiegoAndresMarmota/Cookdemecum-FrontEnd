@@ -11,6 +11,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import MiPerfil from "./components/MiPerfil";
 import Feed from "./components/Feed";
 import SoloUser from "./components/SoloUser";
+import AddBlog from "./components/AddBlog";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" exact element={<Feed />} />
           <Route path="/miPerfil" element={<MiPerfil />} />
           <Route path="/soloUser/:id" element={<SoloUser />} />
+          <Route path="/addBlog" element={<AddBlog />} />
         </Route>
 
         <Route path="/landing" element={<Landing />} />
