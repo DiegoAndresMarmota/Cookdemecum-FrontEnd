@@ -1,26 +1,54 @@
-export const BLOG_LIST_REQUEST = "BLOG_LIST_REQUEST";
-export const BLOG_LIST_SUCCESS = "BLOG_LIST_SUCCESS";
-export const BLOG_LIST_FAIL = "BLOG_LIST_FAIL";
-export const BLOG_LIST_RESET = "BLOG_LIST_RESET";
+import {
+  BLOG_LIST_REQUEST,
+  BLOG_LIST_SUCCESS,
+  BLOG_LIST_FAIL,
+  BLOG_CREATE_REQUEST,
+  BLOG_CREATE_SUCCESS,
+  BLOG_CREATE_FAIL,
+  BLOG_DETAILS_REQUEST,
+  BLOG_DETAILS_SUCCESS,
+  BLOG_DETAILS_FAIL,
+  BLOG_CREATE_COMMENT_REQUEST,
+  BLOG_CREATE_COMMENT_SUCCESS,
+  BLOG_CREATE_COMMENT_FAIL,
+  BLOG_CREATE_COMMENT_RESET,
+  BLOG_UPDATE_REQUEST,
+  BLOG_UPDATE_SUCCESS,
+  BLOG_UPDATE_FAIL,
+  BLOG_UPDATE_RESET,
+  BLOG_DELETE_REQUEST,
+  BLOG_DELETE_SUCCESS,
+  BLOG_DELETE_FAIL,
+} from "../constants/blogConstants";
 
-export const BLOG_DETAILS_REQUEST = "BLOG_DETAILS_REQUEST";
-export const BLOG_DETAILS_SUCCESS = "BLOG_DETAILS_SUCCESS";
-export const BLOG_DETAILS_FAIL = "BLOG_DETAILS_FAIL";
+export const blogListReducer = (state = { blogs: [] }, action) => {
+  switch (action.type) {
+    case BLOG_LIST_REQUEST:
+      return { loading: true, blogs: [] };
 
-export const BLOG_DELETE_REQUEST = "BLOG_DELETE_REQUEST";
-export const BLOG_DELETE_SUCCESS = "BLOG_DELETE_SUCCESS";
-export const BLOG_DELETE_FAIL = "BLOG_DELETE_FAIL";
+    case BLOG_LIST_SUCCESS:
+      return { loading: false, blogs: action.payload };
 
-export const BLOG_CREATE_REQUEST = "BLOG_CREATE_REQUEST";
-export const BLOG_CREATE_SUCCESS = "BLOG_CREATE_SUCCESS";
-export const BLOG_CREATE_FAIL = "BLOG_CREATE_FAIL";
+    case BLOG_LIST_FAIL:
+      return { loading: false, error: action.payload };
 
-export const BLOG_UPDATE_REQUEST = "BLOG_UPDATE_REQUEST";
-export const BLOG_UPDATE_SUCCESS = "BLOG_UPDATE_SUCCESS";
-export const BLOG_UPDATE_FAIL = "BLOG_UPDATE_FAIL";
-export const BLOG_UPDATE_RESET = "BLOG_UPDATE_RESET";
+    default:
+      return state;
+  }
+};
 
-export const BLOG_CREATE_COMMENT_REQUEST = "BLOG_CREATE_COMMENT_REQUEST";
-export const BLOG_CREATE_COMMENT_SUCCESS = "BLOG_CREATE_COMMENT_SUCCESS";
-export const BLOG_CREATE_COMMENT_FAIL = "BLOG_CREATE_COMMENT_FAIL";
-export const BLOG_CREATE_COMMENT_RESET = "BLOG_CREATE_COMMENT_RESET";
+export const blogCreateReducer = (state = {}, action) => {
+  switch (action.type) {
+    case BLOG_CREATE_REQUEST:
+      return { loading: true };
+
+    case BLOG_CREATE_SUCCESS:
+      return { loading: false, success: true, blog: action.payload };
+
+    case BLOG_CREATE_FAIL:
+      return { loading: false, error: action.payload };
+
+    default:
+      return state;
+  }
+};
