@@ -94,44 +94,6 @@ export const logout = () => (disptach) => {
   disptach({ type: USER_LOGOUT });
 };
 
-export const register = (user_name, email, password) => async (dispatch) => {
-  try {
-    dispatch({ type: USER_REGISTER_REQUEST });
-
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-
-    const { data } = await axios.post(
-      "http://127.0.0.1:8000/users/register/",
-      { user_name: user_name, email: email, password: password },
-      config
-    );
-
-    dispatch({
-      type: USER_REGISTER_SUCCESS,
-      payload: data,
-    });
-
-    dispatch({
-      type: USER_LOGIN_SUCCESS,
-      payload: data,
-    });
-
-    localStorage.setItem("userInfo", JSON.stringify(data));
-  } catch (error) {
-    dispatch({
-      type: USER_REGISTER_FAIL,
-      payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
-    });
-  }
-};
-
 export const editUser = (user) => async (dispatch, getState) => {
   try {
     dispatch({ type: USER_EDIT_REQUEST });
@@ -168,6 +130,44 @@ export const editUser = (user) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: USER_EDIT_FAIL,
+      payload:
+        error.response && error.response.data.detail
+          ? error.response.data.detail
+          : error.message,
+    });
+  }
+};
+
+export const register = (user_name, email, password) => async (dispatch) => {
+  try {
+    dispatch({ type: USER_REGISTER_REQUEST });
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const { data } = await axios.post(
+      "http://127.0.0.1:8000/users/register/",
+      { user_name: user_name, email: email, password: password },
+      config
+    );
+
+    dispatch({
+      type: USER_REGISTER_SUCCESS,
+      payload: data,
+    });
+
+    dispatch({
+      type: USER_LOGIN_SUCCESS,
+      payload: data,
+    });
+
+    localStorage.setItem("userInfo", JSON.stringify(data));
+  } catch (error) {
+    dispatch({
+      type: USER_REGISTER_FAIL,
       payload:
         error.response && error.response.data.detail
           ? error.response.data.detail
