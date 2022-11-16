@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "./Loader";
 import Messages from "./Messages";
-import { listBlogs } from "../actions/blogActions";
+import { listBlogs, deleteBlogAction } from "../actions/blogActions";
 import { useParams } from "react-router-dom";
 
 //Iconos
@@ -16,6 +16,13 @@ export default function MiPerfil() {
 
   const { id } = useParams();
 
+  const deleteBlog = useSelector((state) => state.deleteBlog);
+  const {
+    error: errorDelete,
+    loading: loadingDelete,
+    success: successDelete,
+  } = deleteBlog;
+
   const { userInfo } = userLogin;
 
   const blogList = useSelector((state) => state.blogList);
@@ -23,7 +30,13 @@ export default function MiPerfil() {
 
   useEffect(() => {
     dispatch(listBlogs());
-  }, [dispatch]);
+  }, [dispatch, successDelete]);
+
+  const deleteHandler = (id) => {
+    if (window.confirm("¿Deseas borrar este blog?")) {
+      dispatch(deleteBlogAction(id));
+    }
+  };
 
   return (
     <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-6">
