@@ -52,3 +52,22 @@ export const blogCreateReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export const blogUpdateReducer = (state = { blog: {} }, action) => {
+  switch (action.type) {
+    case BLOG_UPDATE_REQUEST:
+      return { loading: true };
+
+    case BLOG_UPDATE_SUCCESS:
+      return { loading: false, success: true, blog: action.payload };
+
+    case BLOG_UPDATE_FAIL:
+      return { loading: false, error: action.payload };
+
+    case BLOG_UPDATE_RESET:
+      return { blog: {} };
+
+    default:
+      return state;
+  }
+};

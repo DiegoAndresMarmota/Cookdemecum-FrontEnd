@@ -200,3 +200,46 @@ export const deleteBlogAction = (id) => async (dispatch, getState) => {
     });
   }
 };
+
+export const updateBlogAction = (blog) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: BLOG_UPDATE_REQUEST,
+    });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.put(
+      `http://127.0.0.1:8000/blogs/put/${blog.id}/`,
+      blog,
+      config
+    );
+
+    dispatch({
+      type: BLOG_UPDATE_SUCCESS,
+      payload: data,
+    });
+
+    dispatch({
+      type: BLOG_DETAILS_REQUEST,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: BLOG_UPDATE_FAIL,
+      payload:
+        error.response && error.response.data.detail
+          ? error.response.data.detail
+          : error.message,
+    });
+  }
+};
