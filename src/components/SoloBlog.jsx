@@ -1,13 +1,18 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { blogActionDetails } from "../actions/blogActions";
+import { blogActionDetails, createBlogAction } from "../actions/blogActions";
 import { getListUsers } from "../actions/userActions";
 import Messages from "./Messages";
 import Loader from "./Loader";
+import { BLOG_CREATE_COMMENT_RESET } from "../constants/blogConstants";
 
 export default function SoloBlog() {
   const { id } = useParams();
+
+  const [text, setText] = useState("");
+  const commentBlog = useSelector((state) => state.commentBlog);
+  const { success } = commentBlog;
 
   const dispatch = useDispatch();
 
@@ -20,6 +25,7 @@ export default function SoloBlog() {
   useEffect(() => {
     if (success) {
       setText("");
+      dispatch({ type: BLOG_CREATE_COMMENT_RESET });
     }
     dispatch(getListUsers());
     dispatch(blogActionDetails(id));

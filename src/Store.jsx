@@ -27,6 +27,7 @@ const reducer = combineReducers({
   blogList: blogListReducer,
   blogCreate: blogCreateReducer,
   soloBlog: blogDetailsReducer,
+  commentBlog: createCommentReducer,
 });
 
 const userInfoStorage = localStorage.getItem("userInfo")
