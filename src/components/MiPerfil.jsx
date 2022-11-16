@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Loader from "./Loader";
 import Messages from "./Messages";
 import { listBlogs } from "../actions/blogActions";
+import { useParams } from "react-router-dom";
 
 //Iconos
 import { AiFillEdit } from "react-icons/ai";
@@ -12,6 +13,8 @@ export default function MiPerfil() {
   const dispatch = useDispatch();
 
   const userLogin = useSelector((state) => state.userLogin);
+
+  const { id } = useParams();
 
   const { userInfo } = userLogin;
 
