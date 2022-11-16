@@ -9,8 +9,17 @@ import { USER_EDIT_RESET } from "../constants/userConstants";
 
 export default function EditProfile() {
 
+    const [user_name, setUserName] = useState('');
+    const [email, setEmail] = useState('');
+    const [bio, setBio] = useState('');
+    const [image, setImage] = useState('');
+    const [message, setMessage] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [uploading, setUploading] = useState(false);
+
 }
 
 return (
-    
+
 )
