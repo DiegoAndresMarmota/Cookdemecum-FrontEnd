@@ -14,6 +14,7 @@ import SoloUser from "./components/SoloUser";
 import AddBlog from "./components/AddBlog";
 import SoloBlog from "./components/SoloBlog";
 import EditBlog from "./components/EditBlog";
+import EditProfile from "./components/EditProfile";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/addBlog" element={<AddBlog />} />
           <Route path="/soloBlog/:id" element={<SoloBlog />} />
           <Route path="/editBlog/:id" element={<EditBlog />} />
+          <Route path="/editProfile" element={<EditProfile />} />
         </Route>
 
         <Route path="/landing" element={<Landing />} />
