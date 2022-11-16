@@ -13,6 +13,7 @@ import {
   blogListReducer,
   blogCreateReducer,
   blogDetailsReducer,
+  createCommentReducer,
 } from "./reducers/blogReducers";
 
 const reducer = combineReducers({

@@ -37,6 +37,25 @@ export const blogListReducer = (state = { blogs: [] }, action) => {
   }
 };
 
+export const createCommentReducer = (state = {}, action) => {
+  switch (action.type) {
+    case BLOG_CREATE_COMMENT_REQUEST:
+      return { loading: true };
+
+    case BLOG_CREATE_COMMENT_SUCCESS:
+      return { loading: false, success: true };
+
+    case BLOG_CREATE_COMMENT_FAIL:
+      return { loading: false, error: action.payload };
+
+    case BLOG_CREATE_COMMENT_RESET:
+      return { blog: {} };
+
+    default:
+      return state;
+  }
+};
+
 export const blogDetailsReducer = (state = { blog: [] }, action) => {
   switch (action.type) {
     case BLOG_DETAILS_REQUEST:
