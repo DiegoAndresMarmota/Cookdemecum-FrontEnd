@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 //Componentes
-import Landing from "./components/Landing";
+import { Landing } from "./components/Landing";
 import Header from "./components/Header";
 import Login from "./components/Login";
 import Register from "./components/Register";
