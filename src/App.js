@@ -14,6 +14,7 @@ import AddBlog from "./components/AddBlog";
 import SoloBlog from "./components/SoloBlog";
 import EditBlog from "./components/EditBlog";
 import EditProfile from "./components/EditProfile";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
