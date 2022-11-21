@@ -37,6 +37,22 @@ export const blogListReducer = (state = { blogs: [] }, action) => {
   }
 };
 
+export const blogCreateReducer = (state = {}, action) => {
+  switch (action.type) {
+    case BLOG_CREATE_REQUEST:
+      return { loading: true };
+
+    case BLOG_CREATE_SUCCESS:
+      return { loading: false, success: true, blog: action.payload };
+
+    case BLOG_CREATE_FAIL:
+      return { loading: false, error: action.payload };
+
+    default:
+      return state;
+  }
+};
+
 export const blogDeleteReducer = (state = {}, action) => {
   switch (action.type) {
     case BLOG_DELETE_REQUEST:
