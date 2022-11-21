@@ -11,5 +11,8 @@ module.exports = {
       sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
     },
   },
-  plugins: [],
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
 };
