@@ -1,9 +1,9 @@
-FrontEnd: https://github.com/DiegoAndresMarmota/Proyecto-Final-Cookdemecum-FrontEnd
-BackEnd: https://github.com/DiegoAndresMarmota/Proyecto-Final-Cookdemecum-BackEnd
+1. FrontEnd: https://github.com/DiegoAndresMarmota/Proyecto-Final-Cookdemecum-FrontEnd
+2. BackEnd: https://github.com/DiegoAndresMarmota/Proyecto-Final-Cookdemecum-BackEnd
 
-1. Wireframes: https://www.figma.com/file/YpLr43n4EjWX8N3LS0X4DR/COOK-DEMECUM?node-id=0%3A1&t=ppASWezQCzELYBWR-1
+3. Wireframes: https://www.figma.com/file/YpLr43n4EjWX8N3LS0X4DR/COOK-DEMECUM?node-id=0%3A1&t=ppASWezQCzELYBWR-1
 
-2. Models:
+4. Models:
 
 /User
 class User(AbstractBaseUser, PermissionsMixin):
@@ -32,10 +32,10 @@ class Comment(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
 
-3. Paleta de Colores: {
+5. Paleta de Colores: {
       white: "#ffffff",
       silver: "#ecebff",
       black: "#18181b",
     },
 
-4. Fuentes: Sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
+6. Fuentes: Sans: ["Montserrat", ...defaultTheme.fontFamily.sans],
