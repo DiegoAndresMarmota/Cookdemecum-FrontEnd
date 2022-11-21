@@ -93,11 +93,11 @@ export default function EditProfile() {
 
 return (
   <>
-    {loading ? (
+    {loading ?
       <Loader />
-    ) : error ? (
-      <Messages>{error}</Messages>
-    ) : (
+      : error
+        ? <Messages>{error}</Messages>
+    : (
       <div>
         {message && <Messages>{message}</Messages>}
         {error && <Messages>{error}</Messages>}
