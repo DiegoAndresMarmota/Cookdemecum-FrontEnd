@@ -7,7 +7,7 @@ import { listBlogs } from "../actions/blogActions";
 import Messages from "./Messages";
 import Loader from "./Loader";
 
-export default function SoloUser() {
+export default function UserProfile() {
   const { id } = useParams();
 
   const dispatch = useDispatch();
