@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { blogActionDetails, createBlogAction } from "../actions/blogActions";
+import { blogActionDetails, createBlogComment } from "../actions/blogActions";
 import { getListUsers } from "../actions/userActions";
 import Messages from "./Messages";
 import Loader from "./Loader";
