@@ -6,7 +6,7 @@ export default function Footer() {
       <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 align-middle">
         Este Recetario te acompañará siempre, para que dejes registro de tus mejores Recetas!
       </span>
-      <hr className="my-1 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-4" />
+      <hr className="my-1 border-gray-300 sm:mx-auto dark:border-gray-300 lg:my-4" />
       <div className="sm:flex sm:items-center sm:justify-between">
         <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
           © 2022{" "}
