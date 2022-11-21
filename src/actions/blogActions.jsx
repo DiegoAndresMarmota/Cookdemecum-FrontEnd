@@ -20,9 +20,11 @@ import {
   BLOG_DELETE_FAIL,
 } from "../constants/blogConstants";
 
-export const listBlogs = () => async (dispatch, getState) => {
+export const updateBlogAction = (blog) => async (dispatch, getState) => {
   try {
-    dispatch({ type: BLOG_LIST_REQUEST });
+    dispatch({
+      type: BLOG_UPDATE_REQUEST,
+    });
 
     const {
       userLogin: { userInfo },
@@ -35,18 +37,24 @@ export const listBlogs = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(
-      `http://127.0.0.1:8000/blogs/get/`,
+    const { data } = await axios.put(
+      `http://127.0.0.1:8000/blogs/put/${blog.id}/`,
+      blog,
       config
     );
 
     dispatch({
-      type: BLOG_LIST_SUCCESS,
+      type: BLOG_UPDATE_SUCCESS,
+      payload: data,
+    });
+
+    dispatch({
+      type: BLOG_DETAILS_REQUEST,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: BLOG_LIST_FAIL,
+      type: BLOG_UPDATE_FAIL,
       payload:
         error.response && error.response.data.detail
           ? error.response.data.detail
@@ -55,9 +63,11 @@ export const listBlogs = () => async (dispatch, getState) => {
   }
 };
 
-export const blogActionDetails = (id) => async (dispatch, getState) => {
+export const deleteBlogAction = (id) => async (dispatch, getState) => {
   try {
-    dispatch({ type: BLOG_DETAILS_REQUEST });
+    dispatch({
+      type: BLOG_DELETE_REQUEST,
+    });
 
     const {
       userLogin: { userInfo },
@@ -70,18 +80,17 @@ export const blogActionDetails = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(
-      `http://127.0.0.1:8000/blogs/get/${id}/`,
+    const { data } = await axios.delete(
+      `http://127.0.0.1:8000/blogs/delete/${id}`,
       config
     );
 
     dispatch({
-      type: BLOG_DETAILS_SUCCESS,
-      payload: data,
+      type: BLOG_DELETE_SUCCESS,
     });
   } catch (error) {
     dispatch({
-      type: BLOG_DETAILS_FAIL,
+      type: BLOG_DELETE_FAIL,
       payload:
         error.response && error.response.data.detail
           ? error.response.data.detail
@@ -119,6 +128,41 @@ export const createBlogComment = (id, text) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: BLOG_CREATE_COMMENT_FAIL,
+      payload:
+        error.response && error.response.data.detail
+          ? error.response.data.detail
+          : error.message,
+    });
+  }
+};
+
+export const blogActionDetails = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: BLOG_DETAILS_REQUEST });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.get(
+      `http://127.0.0.1:8000/blogs/get/${id}/`,
+      config
+    );
+
+    dispatch({
+      type: BLOG_DETAILS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: BLOG_DETAILS_FAIL,
       payload:
         error.response && error.response.data.detail
           ? error.response.data.detail
@@ -165,11 +209,9 @@ export const createBlogAction = (body) => async (dispatch, getState) => {
   }
 };
 
-export const deleteBlogAction = (id) => async (dispatch, getState) => {
+export const listBlogs = () => async (dispatch, getState) => {
   try {
-    dispatch({
-      type: BLOG_DELETE_REQUEST,
-    });
+    dispatch({ type: BLOG_LIST_REQUEST });
 
     const {
       userLogin: { userInfo },
@@ -182,60 +224,18 @@ export const deleteBlogAction = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(
-      `http://127.0.0.1:8000/blogs/delete/${id}`,
+    const { data } = await axios.get(
+      `http://127.0.0.1:8000/blogs/get/`,
       config
     );
 
     dispatch({
-      type: BLOG_DELETE_SUCCESS,
-    });
-  } catch (error) {
-    dispatch({
-      type: BLOG_DELETE_FAIL,
-      payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
-    });
-  }
-};
-
-export const updateBlogAction = (blog) => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: BLOG_UPDATE_REQUEST,
-    });
-
-    const {
-      userLogin: { userInfo },
-    } = getState();
-
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    };
-
-    const { data } = await axios.put(
-      `http://127.0.0.1:8000/blogs/put/${blog.id}/`,
-      blog,
-      config
-    );
-
-    dispatch({
-      type: BLOG_UPDATE_SUCCESS,
-      payload: data,
-    });
-
-    dispatch({
-      type: BLOG_DETAILS_REQUEST,
+      type: BLOG_LIST_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: BLOG_UPDATE_FAIL,
+      type: BLOG_LIST_FAIL,
       payload:
         error.response && error.response.data.detail
           ? error.response.data.detail
