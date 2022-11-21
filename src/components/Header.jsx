@@ -28,7 +28,7 @@ export default function Header() {
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="#">
               <span className="sr-only">Tu Compañia</span>
-              <img className="h-12 w-auto sm:h-12" src={user} alt="" />
+              <img className="h-12 w-auto sm:h-12" src={cook} alt="" />
             </a>
           </div>
           <div className="-my-2 -mr-2 md:hidden">
