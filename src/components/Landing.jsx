@@ -1,4 +1,5 @@
 import React from "react";
+import Recept from "./Recept";
 
 export const Landing = () => {
   return (
@@ -17,11 +18,10 @@ export const Landing = () => {
               una infinidad de recetas riquísimas que deleitarán incluso a los
               paladares más exigentes. En nuestra web encontrarás todo tipo de
               recetas de cocina capaces de sorprender a los paladares más
-              exquisitos.  
-            
+              exquisitos.
             </p>
+            <Recept />
           </div>
-
         </main>
       </div>
     </div>
