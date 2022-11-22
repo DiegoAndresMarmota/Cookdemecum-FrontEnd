@@ -5,14 +5,13 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import { AiFillHome, AiFillPlusSquare } from "react-icons/ai";
 import { logout } from "../actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
-import cook from '../media/cook.png';
+import cook from "../media/cook.png";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Header() {
-
   const userLogin = useSelector((state) => state.userLogin);
 
   const { userInfo } = userLogin;
@@ -26,7 +25,7 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <a href="#">
+            <a href="/Landing">
               <span className="sr-only">Tu Compañia</span>
               <img className="h-12 w-auto sm:h-12" src={cook} alt="" />
             </a>
