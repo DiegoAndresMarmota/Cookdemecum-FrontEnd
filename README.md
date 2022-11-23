@@ -31,7 +31,6 @@ class Post(db.Model):
     post = db.Column(db.String(300), nullable=False)
     date = db.Column(db.Date(20), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    #blog_id = db.Column(db.Interger, db.ForeignKey("blogs.id"), nullable=False)
 
     def _repr_(self):
         return "<Product %r>" % self.title
