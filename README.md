@@ -1,5 +1,5 @@
 1. FrontEnd: https://github.com/DiegoAndresMarmota/Proyecto-Final-Cookdemecum-FrontEnd
-2. BackEnd: https://github.com/DiegoAndresMarmota/Test-Flask-Blog
+2. BackEnd: https://github.com/DiegoAndresMarmota/Proyecto-Final-Cookdemecum-BackEnd
 
 3. Wireframes: https://www.figma.com/file/YpLr43n4EjWX8N3LS0X4DR/COOK-DEMECUM?node-id=0%3A1&t=ppASWezQCzELYBWR-1
 
