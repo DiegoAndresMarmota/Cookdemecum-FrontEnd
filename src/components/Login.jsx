@@ -69,7 +69,7 @@ export default function Login() {
                       autoComplete="email"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                      placeholder="Email address"
+                      placeholder="Cuenta de Email"
                     />
                   </div>
                   <div>
@@ -85,12 +85,12 @@ export default function Login() {
                       autoComplete="current-password"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                      placeholder="Password"
+                      placeholder="Contraseña"
                     />
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between">
+                {/* <div className="flex items-center justify-between">
                   <div className="text-sm">
                     <a
                       href="/register"
@@ -99,7 +99,7 @@ export default function Login() {
                       Registrate
                     </a>
                   </div>
-                </div>
+                </div> */}
 
                 <div>
                   <button
@@ -112,7 +112,7 @@ export default function Login() {
                         aria-hidden="true"
                       />
                     </span>
-                    Logueate
+                    Ingresar
                   </button>
                 </div>
               </form>

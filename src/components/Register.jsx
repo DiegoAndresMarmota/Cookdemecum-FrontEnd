@@ -5,7 +5,7 @@ import { LockClosedIcon } from "@heroicons/react/20/solid";
 import { useNavigate } from "react-router";
 import Messages from "./Messages";
 import Loader from "./Loader";
-import user from '../media/user.png';
+import user from "../media/user.png";
 
 export default function Register() {
   const [user_name, setUser_name] = useState("");
@@ -54,7 +54,7 @@ export default function Register() {
                 alt="Your Company"
               />
               <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-                Ingresa a tu cuenta
+                Registra tu cuenta
               </h2>
             </div>
 
@@ -80,7 +80,7 @@ export default function Register() {
                       autoComplete="email"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                      placeholder="Username"
+                      placeholder="Usuario"
                     />
                   </div>
 
@@ -97,7 +97,7 @@ export default function Register() {
                       autoComplete="email"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                      placeholder="Email address"
+                      placeholder="Dirección de Email"
                     />
                   </div>
 
@@ -114,7 +114,7 @@ export default function Register() {
                       autoComplete="current-password"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                      placeholder="Password"
+                      placeholder="Contraseña"
                     />
                   </div>
 
@@ -131,23 +131,21 @@ export default function Register() {
                       autoComplete="current-password"
                       required
                       className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                      placeholder="Password"
+                      placeholder="Repetir tu contraseña"
                     />
                   </div>
                 </div>
               </div>
-
               <div className="flex items-center justify-between">
-                <div className="text-sm">
+                {/* <div className="text-sm">
                   <a
                     href="/login"
                     className="font-medium text-indigo-600 hover:text-indigo-500"
                   >
                     Ingresar
                   </a>
-                </div>
+                </div> */}
               </div>
-
               <div>
                 <button
                   type="submit"
@@ -159,7 +157,7 @@ export default function Register() {
                       aria-hidden="true"
                     />
                   </span>
-                  Registrate
+                  Registrar
                 </button>
               </div>
             </form>
