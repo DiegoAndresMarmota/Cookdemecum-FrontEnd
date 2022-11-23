@@ -3,8 +3,7 @@
 
 3. Wireframes: https://www.figma.com/file/YpLr43n4EjWX8N3LS0X4DR/COOK-DEMECUM?node-id=0%3A1&t=ppASWezQCzELYBWR-1
 
-4. Models:
-
+4. Models: 
 class User(db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
@@ -25,33 +24,14 @@ class User(db.Model):
         }
 
 
-class Blog(db.Model):
-    __tablename__ = "blogs"
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(50), nullable=False)
-    comentary = db.Column(db.String(100), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    posts = db.relantioship("Post")
-
-    def _repr_(self):
-        return "<Product %r>" % self.title
-
-    def serialize(self):
-        return {
-            "id": self.id,
-            "title": self.title,
-            "comentary": self.comentary,
-            "user_id": self.user_id
-        }
-
-
 class Post(db.Model):
     __tablename__ = "posts"
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
     post = db.Column(db.String(300), nullable=False)
     date = db.Column(db.Date(20), nullable=False)
-    blog_id = db.Column(db.Interger, db.ForeignKey("blogs.id"), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    #blog_id = db.Column(db.Interger, db.ForeignKey("blogs.id"), nullable=False)
 
     def _repr_(self):
         return "<Product %r>" % self.title
@@ -62,7 +42,7 @@ class Post(db.Model):
             "title": self.title,
             "comentary": self.post,
             "date": self.date,
-            "blog_id": self.blog_id
+            "user_id": self.user_id
         }
 
 
