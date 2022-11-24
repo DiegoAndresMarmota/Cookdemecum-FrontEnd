@@ -118,7 +118,7 @@ export default function Register() {
                     />
                   </div>
 
-                  {/*<div className="my-8">
+                  <div className="my-8">
                     <label htmlFor="password" className="sr-only">
                       Confirmar contraseña
                     </label>
@@ -133,8 +133,7 @@ export default function Register() {
                       className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                       placeholder="Repetir tu contraseña"
                     />
-                    </div>
-                  */}
+                  </div>
                 </div>
               </div>
               <div className="flex items-center justify-between">
