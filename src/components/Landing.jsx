@@ -1,26 +1,27 @@
 import React from "react";
 import Recept from "./Recept";
+import LeftLanding from "./LeftLanding";
+import RightLanding from "./RightLanding"
 
 export const Landing = () => {
   return (
-    <div className="relative overflow-hidden bg-white my-52">
+    <div className="relative overflow-hidden bg-white my-1">
       <div className="mx-auto max-w-7xl">
-        <main className="mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-          <div className="sm:text-center lg:text-left">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
+        <main className="mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-10">
+          <div className="sm:text-center lg:text-center">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl mb-5">
               <span className="block xl:inline"> Bienvenido a </span>{" "}
               <span className="block text-indigo-600 xl:inline">
                 COOK-DEMECUM
               </span>
             </h1>
-            <p className="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
+            <h5 className="text-2xl font-bold tracking-tight text-neutral-800 sm:text-2xl md:text-2xl mb-20 text-center">
               Si el mundo de la cocina te fascina, en Cook-demecum descubrirás
-              una infinidad de recetas riquísimas que deleitarán incluso a los
-              paladares más exigentes. En nuestra web encontrarás todo tipo de
-              recetas de cocina capaces de sorprender a los paladares más
-              exquisitos.
-            </p>
-            <Recept />
+              una infinidad de recetas riquísimas que te deleitarán.
+            </h5>
+            <LeftLanding />
+            <RightLanding />
+            {/* <Recept /> */}
           </div>
         </main>
       </div>
