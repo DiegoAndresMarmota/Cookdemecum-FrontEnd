@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <footer className="mx-auto max-w-7xl px-4 sm:px-6">
+    <footer className="mx-auto max-w-7xl px-4 sm:px-6 my-9">
       <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 align-middle">
         Este Recetario te acompañará siempre, para que dejes registro de tus mejores Recetas!
       </span>
