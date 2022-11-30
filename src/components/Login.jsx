@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 import { LockClosedIcon } from "@heroicons/react/20/solid";
 import Messages from '../components/Messages';
 import Loader from '../components/Loader';
-import user from '../media/user.png';
+import user from '../styles/user.png';
 
 export default function Login() {
     const [email, setEmail] = useState("");

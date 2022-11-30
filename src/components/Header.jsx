@@ -5,7 +5,7 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import { AiFillHome, AiFillPlusSquare } from "react-icons/ai";
 import { logout } from "../actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
-import cook from "../media/cook.png";
+import cook from "../styles/cook.png";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

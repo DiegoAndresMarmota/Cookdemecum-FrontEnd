@@ -1,5 +1,5 @@
 import React from "react";
-import food2 from "../media/food2.jpg"
+import food2 from "../styles/food2.jpg"
 
 export default function RightLanding() {
   return (

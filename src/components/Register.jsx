@@ -5,7 +5,7 @@ import { LockClosedIcon } from "@heroicons/react/20/solid";
 import { useNavigate } from "react-router";
 import Messages from "./Messages";
 import Loader from "./Loader";
-import user from "../media/user.png";
+import user from "../styles/user.png";
 
 export default function Register() {
   const [user_name, setUser_name] = useState("");

@@ -1,5 +1,5 @@
 import React from 'react'
-import food1 from "../media/food1.jpg"
+import food1 from "../styles/food1.jpg"
 
 export default function () {
     return (
