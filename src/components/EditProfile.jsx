@@ -115,8 +115,8 @@ export default function EditProfile() {
                             onChange={(e) => setUserName(e.target.value)}
                             type="text"
                             id="user_name"
-                            className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                            placeholder="Full Name"
+                            className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-500 focus:outline-none focus:ring-red-500 sm:text-sm"
+                            placeholder="Nombre"
                           />
                         </div>
                         <br></br>
@@ -128,8 +128,8 @@ export default function EditProfile() {
                             type="email"
                             name="email"
                             id="email"
-                            className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                            placeholder="E-mail"
+                            className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-500 focus:outline-none focus:ring-red-500 sm:text-sm"
+                            placeholder="Email"
                           />
                         </div>
 
@@ -152,8 +152,8 @@ export default function EditProfile() {
                           id="bio"
                           name="bio"
                           rows={3}
-                          className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                          placeholder="About You"
+                          className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-500 focus:outline-none focus:ring-red-500 sm:text-sm"
+                          placeholder="Acerda de ti"
                           defaultValue={""}
                         />
                       </div>
@@ -171,8 +171,8 @@ export default function EditProfile() {
                         onChange={(e) => setPassword(e.target.value)}
                         type="password"
                         id="password"
-                        className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                        placeholder="Password"
+                        className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-500 focus:outline-none focus:ring-red-500 sm:text-sm"
+                        placeholder="Contraseña"
                       />
                     </div>
 
@@ -182,8 +182,8 @@ export default function EditProfile() {
                         onChange={(e) => setConfirmPassword(e.target.value)}
                         type="password"
                         id="confirmPassword"
-                        className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                        placeholder="Confirm Password"
+                        className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-500 focus:outline-none focus:ring-red-500 sm:text-sm"
+                        placeholder="Confirma contraseña"
                       />
                     </div>
 
@@ -212,7 +212,7 @@ export default function EditProfile() {
                   <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
                     <button
                       type="submit"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                     >
                       Guardar
                     </button>

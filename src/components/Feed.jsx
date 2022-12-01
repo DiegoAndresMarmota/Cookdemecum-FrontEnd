@@ -50,7 +50,7 @@ export default function Feed() {
                                     <a
                                       style={{ textDecoration: "none" }}
                                       href={`/soloUser/${user.id}`}
-                                      className="text-blue-600 text-sm hover:text-blue-800"
+                                      className="text-red-600 text-sm hover:text-red-800"
                                     >
                                       Ver Perfil
                                     </a>
@@ -70,7 +70,7 @@ export default function Feed() {
                           <a
                             style={{ textDecoration: "none" }}
                             href={`/soloBlog/${blog.id}`}
-                            className="group relative flex  justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            className="group relative flex  justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                           >
                             Ver Más
                           </a>

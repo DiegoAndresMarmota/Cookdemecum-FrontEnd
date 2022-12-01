@@ -31,7 +31,7 @@ export default function Header() {
             </a>
           </div>
           <div className="-my-2 -mr-2 md:hidden">
-            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+            <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500">
               <span className="sr-only">Abrir Menu</span>
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </Popover.Button>
@@ -56,7 +56,7 @@ export default function Header() {
                 <Menu as="div" className="relative ml-3">
                   <div>
                     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                      <span className="sr-only">Open user menu</span>
+                      <span className="sr-only">Abrir menu</span>
                       <img
                         className="h-10 w-10 rounded-full"
                         src={`http://127.0.0.1:8000${userInfo.image}`}
@@ -119,7 +119,7 @@ export default function Header() {
 
               <a
                 href="/register"
-                className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700"
               >
                 Registrate
               </a>
@@ -174,7 +174,7 @@ export default function Header() {
                     <Menu as="div" className="relative ml-3">
                       <div>
                         <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                          <span className="sr-only">Open user menu</span>
+                          <span className="sr-only">Abrir menu</span>
                           <img
                             className="h-10 w-10 rounded-full"
                             src={`http://127.0.0.1:8000${userInfo.image}`}
@@ -231,16 +231,16 @@ export default function Header() {
                 <div>
                   <a
                     href="/register"
-                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-red-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-700"
                   >
                     Inscribirse
                   </a>
 
                   <p className="mt-6 text-center text-base font-medium text-gray-500">
-                    Existing customer?{" "}
+                    Cuenta existente?{" "}
                     <a
                       href="/login"
-                      className="text-indigo-600 hover:text-indigo-500"
+                      className="text-red-600 hover:text-red-500"
                     >
                       Registrarse
                     </a>

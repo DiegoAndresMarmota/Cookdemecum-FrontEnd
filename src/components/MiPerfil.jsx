@@ -54,7 +54,7 @@ export default function MiPerfil() {
               <a
                 style={{ textDecoration: "none" }}
                 href={"/editProfile"}
-                className=" bg-indigo-600 py-1 px-5 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                className=" bg-red-600 py-1 px-5 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
               >
                 Editar
               </a>
@@ -89,7 +89,7 @@ export default function MiPerfil() {
         </div>
       </div>
       <h2 className="mt-6 mb-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-        -- Blogueos --
+        -- Posteos --
       </h2>
       {blogs.map((blog) => (
         <>
@@ -122,7 +122,7 @@ export default function MiPerfil() {
                         <div class="flex flex-row items-center">
                           <a
                             href={`/editBlog/${blog.id}`}
-                            className="group mx-6 relative flex  justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            className="group mx-6 relative flex  justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                           >
                             {" "}
                             <AiFillEdit size={30} />
@@ -130,7 +130,7 @@ export default function MiPerfil() {
 
                           <button
                             onClick={() => deleteHandler(blog.id)}
-                            className="group relative flex  justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                            className="group relative flex  justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                           >
                             {" "}
                             <BsFillTrashFill size={30} />

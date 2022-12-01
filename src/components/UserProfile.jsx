@@ -75,7 +75,7 @@ export default function UserProfile() {
             </div>
           </div>
           <h2 className="mt-6 mb-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-            -- POSTEOS --
+            -- Posteos --
           </h2>
 
           {blogs.map((blog) => (
@@ -111,7 +111,7 @@ export default function UserProfile() {
                             <div class="flex flex-row items-center">
                               <a
                                 href={`/soloBlog/${blog.id}`}
-                                className="group relative flex  justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                className="group relative flex  justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                               >
                                 Ver Más
                               </a>
