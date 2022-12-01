@@ -11,7 +11,7 @@ export const Landing = () => {
           <div className="sm:text-center lg:text-center">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl mb-5">
               <span className="block xl:inline"> Bienvenido a </span>{" "}
-              <span className="block text-indigo-600 xl:inline">
+              <span className="block text-red-700 xl:inline">
                 COOK-DEMECUM
               </span>
             </h1>
