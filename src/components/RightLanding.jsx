@@ -1,10 +1,10 @@
 import React from "react";
-import food2 from "../styles/food2.jpg"
+import food2 from "../styles/food2.jpg";
 
 export default function RightLanding() {
   return (
-    <div className="flex">
-      <div className="flex-row">
+    <div className="flex justify-around">
+      <div className="flex-row pt-10 px-6 pb-10">
         <img
           className="object-cover mt-6 h-96 w-96"
           src={food2}
