@@ -3,7 +3,7 @@ import Recept from "./Recept";
 import LeftLanding from "./LeftLanding";
 import RightLanding from "./RightLanding"
 
-export const Landing = () => {
+const Landing = () => {
   return (
     <div className=" bg-white my-1">
       <div className="mx-auto max-w-7xl">
@@ -32,3 +32,5 @@ export const Landing = () => {
     </div>
   );
 };
+
+export default Landing;
