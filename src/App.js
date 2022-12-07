@@ -1,8 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-//Componentes
-import { Landing } from "./components/Landing";
+import Landing from "./components/Landing";
 import Header from "./components/Header";
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -14,7 +13,6 @@ import AddBlog from "./components/AddBlog";
 import SoloBlog from "./components/SoloBlog";
 import EditBlog from "./components/EditBlog";
 import EditProfile from "./components/EditProfile";
-import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -24,7 +22,7 @@ function App() {
         <Route element={<PrivateRoute />}>
           <Route path="/" exact element={<Feed />} />
           <Route path="/miPerfil" element={<MiPerfil />} />
-          <Route path="/soloUser/:id" element={<UserProfile />} />
+          <Route path="/userProfile/:id" element={<UserProfile />} />
           <Route path="/addBlog" element={<AddBlog />} />
           <Route path="/soloBlog/:id" element={<SoloBlog />} />
           <Route path="/editBlog/:id" element={<EditBlog />} />
@@ -35,7 +33,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   );
 }

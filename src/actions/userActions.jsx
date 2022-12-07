@@ -19,6 +19,50 @@ import {
   USER_LIST_FAIL,
 } from "../constants/userConstants";
 
+export const editUser = (user) => async (dispatch, getState) => {
+  try {
+    dispatch({ type: USER_EDIT_REQUEST });
+    dispatch({ type: USER_SOLO_RESET });
+
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.put(
+      "http://127.0.0.1:8000/users/put/",
+      user,
+      config
+    );
+
+    dispatch({
+      type: USER_EDIT_SUCCESS,
+      payload: data,
+    });
+
+    dispatch({
+      type: USER_LOGIN_SUCCESS,
+      payload: data,
+    });
+
+    localStorage.setItem("userInfo", JSON.stringify(data));
+  } catch (error) {
+    dispatch({
+      type: USER_EDIT_FAIL,
+      payload:
+        error.response && error.response.data.detail
+          ? error.response.data.detail
+          : error.message,
+    });
+  }
+};
+
 export const getSoloUser = (id) => async (dispatch, getState) => {
   try {
     dispatch({ type: USER_SOLO_REQUEST });
@@ -35,7 +79,7 @@ export const getSoloUser = (id) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `http://127.0.0.1:8000/users/soloUser/${id}/`,
+      `http://127.0.0.1:8000/users/${id}/`,
       config
     );
 
@@ -92,50 +136,6 @@ export const getListUsers = () => async (dispatch, getState) => {
 export const logout = () => (disptach) => {
   localStorage.removeItem("userInfo");
   disptach({ type: USER_LOGOUT });
-};
-
-export const editUser = (user) => async (dispatch, getState) => {
-  try {
-    dispatch({ type: USER_EDIT_REQUEST });
-    dispatch({ type: USER_SOLO_RESET });
-
-    const {
-      userLogin: { userInfo },
-    } = getState();
-
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
-      },
-    };
-
-    const { data } = await axios.put(
-      "http://127.0.0.1:8000/users/put/",
-      user,
-      config
-    );
-
-    dispatch({
-      type: USER_EDIT_SUCCESS,
-      payload: data,
-    });
-
-    dispatch({
-      type: USER_LOGIN_SUCCESS,
-      payload: data,
-    });
-
-    localStorage.setItem("userInfo", JSON.stringify(data));
-  } catch (error) {
-    dispatch({
-      type: USER_EDIT_FAIL,
-      payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
-    });
-  }
 };
 
 export const register = (user_name, email, password) => async (dispatch) => {

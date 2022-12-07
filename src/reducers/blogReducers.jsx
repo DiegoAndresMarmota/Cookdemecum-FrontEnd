@@ -21,32 +21,19 @@ import {
   BLOG_DELETE_FAIL,
 } from "../constants/blogConstants";
 
-export const blogListReducer = (state = { blogs: [] }, action) => {
+export const blogUpdateReducer = (state = { blog: {} }, action) => {
   switch (action.type) {
-    case BLOG_LIST_REQUEST:
-      return { loading: true, blogs: [] };
-
-    case BLOG_LIST_SUCCESS:
-      return { loading: false, blogs: action.payload };
-
-    case BLOG_LIST_FAIL:
-      return { loading: false, error: action.payload };
-
-    default:
-      return state;
-  }
-};
-
-export const blogCreateReducer = (state = {}, action) => {
-  switch (action.type) {
-    case BLOG_CREATE_REQUEST:
+    case BLOG_UPDATE_REQUEST:
       return { loading: true };
 
-    case BLOG_CREATE_SUCCESS:
+    case BLOG_UPDATE_SUCCESS:
       return { loading: false, success: true, blog: action.payload };
 
-    case BLOG_CREATE_FAIL:
+    case BLOG_UPDATE_FAIL:
       return { loading: false, error: action.payload };
+
+    case BLOG_UPDATE_RESET:
+      return { blog: {} };
 
     default:
       return state;
@@ -104,19 +91,32 @@ export const blogDetailsReducer = (state = { blog: [] }, action) => {
   }
 };
 
-export const blogUpdateReducer = (state = { blog: {} }, action) => {
+export const blogCreateReducer = (state = {}, action) => {
   switch (action.type) {
-    case BLOG_UPDATE_REQUEST:
+    case BLOG_CREATE_REQUEST:
       return { loading: true };
 
-    case BLOG_UPDATE_SUCCESS:
+    case BLOG_CREATE_SUCCESS:
       return { loading: false, success: true, blog: action.payload };
 
-    case BLOG_UPDATE_FAIL:
+    case BLOG_CREATE_FAIL:
       return { loading: false, error: action.payload };
 
-    case BLOG_UPDATE_RESET:
-      return { blog: {} };
+    default:
+      return state;
+  }
+};
+
+export const blogListReducer = (state = { blogs: [] }, action) => {
+  switch (action.type) {
+    case BLOG_LIST_REQUEST:
+      return { loading: true, blogs: [] };
+
+    case BLOG_LIST_SUCCESS:
+      return { loading: false, blogs: action.payload };
+
+    case BLOG_LIST_FAIL:
+      return { loading: false, error: action.payload };
 
     default:
       return state;
