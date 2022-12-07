@@ -35,11 +35,7 @@ export const editUser = (user) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.put(
-      "http://127.0.0.1:8000/users/put/",
-      user,
-      config
-    );
+    const { data } = await axios.put("http://127.0.0.1:8080/put", user, config);
 
     dispatch({
       type: USER_EDIT_SUCCESS,
@@ -78,10 +74,7 @@ export const getSoloUser = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(
-      `http://127.0.0.1:8000/users/${id}/`,
-      config
-    );
+    const { data } = await axios.get(`http://127.0.0.1:8080/${id}/`, config);
 
     dispatch({
       type: USER_SOLO_SUCCESS,
@@ -113,10 +106,7 @@ export const getListUsers = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(
-      `http://127.0.0.1:8000/users/getUsers/`,
-      config
-    );
+    const { data } = await axios.get(`http://127.0.0.1:8080/getUsers`, config);
 
     dispatch({
       type: USER_LIST_SUCCESS,
@@ -149,7 +139,7 @@ export const register = (user_name, email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "http://127.0.0.1:8000/users/register/",
+      "http://127.0.0.1:8080/register",
       { user_name: user_name, email: email, password: password },
       config
     );
@@ -178,6 +168,7 @@ export const register = (user_name, email, password) => async (dispatch) => {
 
 export const login = (email, password) => async (dispatch) => {
   try {
+    console.log("dispatch: ", dispatch, email, password);
     dispatch({ type: USER_LOGIN_REQUEST });
 
     const config = {
@@ -187,10 +178,11 @@ export const login = (email, password) => async (dispatch) => {
     };
 
     const { data } = await axios.post(
-      "http://127.0.0.1:8000/users/login/",
+      "http://127.0.0.1:8080/login",
       { email: email, password: password },
       config
     );
+    // console.log(data);
 
     dispatch({
       type: USER_LOGIN_SUCCESS,
@@ -199,6 +191,7 @@ export const login = (email, password) => async (dispatch) => {
 
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
+    console.log("catch error");
     dispatch({
       type: USER_LOGIN_FAIL,
       payload:

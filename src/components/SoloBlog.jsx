@@ -59,7 +59,7 @@ export default function SoloBlog() {
                                   <>
                                     <div className="flex flex-row items-center ml-2">
                                       <img
-                                        src={`http://127.0.0.1:8000${user.image}`}
+                                        src={`http://127.0.0.1:8080${user.image}`}
                                         class="rounded-full"
                                         width="40"
                                       />
@@ -138,7 +138,7 @@ export default function SoloBlog() {
                             <div>
                               <img
                                 className="object-cover w-24 h-24 rounded-full shadow"
-                                src={`http://127.0.0.1:8000${u.image}`}
+                                src={`http://127.0.0.1:8080${u.image}`}
                                 alt="Person"
                               />
                               <div className="flex flex-col justify-center mt-2">

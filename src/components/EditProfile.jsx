@@ -78,7 +78,7 @@ export default function EditProfile() {
       };
 
       const { data } = await axios.post(
-        "http://127.0.0.1:8000/users/image/",
+        "http://127.0.0.1:8080/image",
         formData,
         config
       );

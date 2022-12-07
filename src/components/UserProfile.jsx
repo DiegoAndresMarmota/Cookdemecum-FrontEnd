@@ -38,7 +38,7 @@ export default function UserProfile() {
               <center>
                 <img
                   className="h-40 w-55 rounded-full"
-                  src={`http://127.0.0.1:8000${user.image}`}
+                  src={`http://127.0.0.1:8080${user.image}`}
                   alt=""
                 />
                 <br></br>
@@ -92,7 +92,7 @@ export default function UserProfile() {
                           >
                             <div className="flex flex-row items-center">
                               <img
-                                src={`http://127.0.0.1:8000${user.image}`}
+                                src={`http://127.0.0.1:8080${user.image}`}
                                 class="rounded-full"
                                 width="40"
                               />
