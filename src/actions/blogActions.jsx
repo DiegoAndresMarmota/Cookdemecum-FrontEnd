@@ -171,7 +171,7 @@ export const blogActionDetails = (id) => async (dispatch, getState) => {
   }
 };
 
-export const createBlogAction = (body) => async (dispatch, getState) => {
+export const createBlogAction = (title, body) => async (dispatch, getState) => {
   try {
     dispatch({
       type: BLOG_CREATE_REQUEST,
@@ -184,13 +184,13 @@ export const createBlogAction = (body) => async (dispatch, getState) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${userInfo.access_token}`,
       },
     };
 
     const { data } = await axios.post(
-      `http://127.0.0.1:8080/post`,
-      { body: body },
+      "http://127.0.0.1:8080/post",
+      { user_id: userInfo.data.id, title: title, comentary: body },
       config
     );
 
@@ -201,10 +201,7 @@ export const createBlogAction = (body) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: BLOG_CREATE_FAIL,
-      payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+      payload: error.response.data.msg,
     });
   }
 };
