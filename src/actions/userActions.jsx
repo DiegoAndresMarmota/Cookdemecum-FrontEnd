@@ -165,7 +165,6 @@ export const register = (user_name, email, password) => async (dispatch) => {
 
 export const login = (email, password) => async (dispatch) => {
   try {
-    ("dispatch: ", dispatch, email, password);
     dispatch({ type: USER_LOGIN_REQUEST });
 
     const config = {
