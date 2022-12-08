@@ -53,6 +53,8 @@ export default function Header() {
                   <AiFillPlusSquare size={30} />
                 </a>
 
+                <h3>{userInfo.data.username}</h3>
+
                 <Menu as="div" className="relative ml-3">
                   <div>
                     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
