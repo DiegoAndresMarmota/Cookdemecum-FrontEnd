@@ -53,7 +53,7 @@ export default function Header() {
                   <AiFillPlusSquare size={30} />
                 </a>
 
-                <h3>{userInfo.data.username}</h3>
+                {/* <h3>{userInfo.data.username}</h3> */}
 
                 <Menu as="div" className="relative ml-3">
                   <div>
