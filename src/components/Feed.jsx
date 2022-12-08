@@ -31,7 +31,7 @@ export default function Feed() {
                 <div className="max-w-md mx-auto  bg-white shadow-lg rounded-md overflow-hidden md:max-w-md">
                   <div className="md:flex">
                     <div className="w-full">
-                      <div class="flex justify-between items-center m-8">
+                      <div className="flex justify-between items-center m-8">
                         <div className="flex flex-row items-center">
                           {users &&
                             users.map((user) => (
@@ -40,7 +40,7 @@ export default function Feed() {
                                   <div className="flex flex-row items-center ml-2">
                                     <img
                                       src={`http://127.0.0.1:8080${user.image}`}
-                                      class="rounded-full"
+                                      className="rounded-full"
                                       width="40"
                                     />
                                     <span className="font-bold mr-1 ml-2">
@@ -65,8 +65,8 @@ export default function Feed() {
                         <p>{blog.body}</p>
                       </div>
 
-                      <div class="p-4 flex justify-between items-center">
-                        <div class="flex flex-row items-center ">
+                      <div className="p-4 flex justify-between items-center">
+                        <div className="flex flex-row items-center ">
                           <a
                             style={{ textDecoration: "none" }}
                             href={`/soloBlog/${blog.id}`}
