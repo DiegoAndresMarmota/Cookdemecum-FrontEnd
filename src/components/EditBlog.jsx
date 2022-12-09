@@ -27,11 +27,7 @@ export default function EditBlog() {
     if (success) {
       dispatch({ type: BLOG_UPDATE_RESET });
     } else {
-      if (blog.id !== Number(id)) {
-        dispatch(blogActionDetails(id));
-      } else {
-        setBody(blog.body);
-      }
+      dispatch(blogActionDetails(id));
     }
   }, [dispatch, blog, id, success]);
 
@@ -44,7 +40,6 @@ export default function EditBlog() {
       })
     );
     navigate(path);
-    window.location.reload();
   };
 
   return (

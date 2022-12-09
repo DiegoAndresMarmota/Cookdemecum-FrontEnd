@@ -31,7 +31,7 @@ export const editUser = (user) => async (dispatch, getState) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${userInfo.access_token}`,
       },
     };
 
@@ -70,7 +70,7 @@ export const getSoloUser = (id) => async (dispatch, getState) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${userInfo.access_token}`,
       },
     };
 
@@ -102,7 +102,7 @@ export const getListUsers = () => async (dispatch, getState) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${userInfo.access_token}`,
       },
     };
 

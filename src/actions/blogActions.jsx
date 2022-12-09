@@ -33,13 +33,13 @@ export const updateBlogAction = (blog) => async (dispatch, getState) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${userInfo.access_token}`,
       },
     };
 
     const { data } = await axios.put(
-      `http://127.0.0.1:8080/put/${blog.id}/`,
-      blog,
+      `http://127.0.0.1:8080/blogs/editBlog/${blog.id}`,
+      { post: blog.body },
       config
     );
 
@@ -55,10 +55,7 @@ export const updateBlogAction = (blog) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: BLOG_UPDATE_FAIL,
-      payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+      payload: error.response.data.msg,
     });
   }
 };
@@ -76,7 +73,7 @@ export const deleteBlogAction = (id) => async (dispatch, getState) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${userInfo.access_token}`,
       },
     };
 
@@ -112,7 +109,7 @@ export const createBlogComment = (id, text) => async (dispatch, getState) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${userInfo.access_token}`,
       },
     };
     const { data } = await axios.post(
@@ -147,12 +144,12 @@ export const blogActionDetails = (id) => async (dispatch, getState) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${userInfo.access_token}`,
       },
     };
 
     const { data } = await axios.get(
-      `http://127.0.0.1:8080/blogs/get/${id}`,
+      `http://127.0.0.1:8080/blogs/editBlog/${id}`,
       config
     );
 
@@ -163,10 +160,7 @@ export const blogActionDetails = (id) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: BLOG_DETAILS_FAIL,
-      payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+      payload: error.response.data.msg,
     });
   }
 };
