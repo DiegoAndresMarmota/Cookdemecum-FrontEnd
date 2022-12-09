@@ -3,9 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import Messages from "./Messages";
 import Loader from "./Loader";
 import { getListUsers } from "../actions/userActions";
-import { listBlogs } from "../actions/blogActions";
+import { listBlogs, deleteBlogAction } from "../actions/blogActions";
 
-export default function Feed() {
+import { AiFillEdit } from "react-icons/ai";
+import { BsFillTrashFill } from "react-icons/bs";
+
+export default function Feed({ isEditable }) {
   const dispatch = useDispatch();
   const userList = useSelector((state) => state.userList);
   const { users } = userList;
@@ -16,6 +19,18 @@ export default function Feed() {
     dispatch(getListUsers());
     dispatch(listBlogs());
   }, [dispatch]);
+
+  const formatDate = (date) => {
+    return String(date)
+      .split(":")[0]
+      .substring(0, String(date).split(":")[0].length - 3);
+  };
+
+  const deleteHandler = (id) => {
+    if (window.confirm("¿Deseas borrar este blog?")) {
+      dispatch(deleteBlogAction(id));
+    }
+  };
 
   return (
     <>
@@ -31,38 +46,14 @@ export default function Feed() {
                 <div className="max-w-md mx-auto  bg-white shadow-lg rounded-md overflow-hidden md:max-w-md">
                   <div className="md:flex">
                     <div className="w-full">
-                      <div className="flex justify-between items-center m-8">
-                        <div className="flex flex-row items-center">
-                          {users &&
-                            users.map((user) => (
-                              <div key={user.id}>
-                                {user.user_name === blog.user && (
-                                  <div className="flex flex-row items-center ml-2">
-                                    <img
-                                      src={`http://127.0.0.1:8080${user.image}`}
-                                      className="rounded-full"
-                                      width="40"
-                                    />
-                                    <span className="font-bold mr-1 ml-2">
-                                      {user.user_name}
-                                    </span>
-                                    <small className="h-1 w-1 bg-gray-300 rounded-full mr-1 mt-1"></small>
-                                    <a
-                                      style={{ textDecoration: "none" }}
-                                      href={`/soloUser/${user.id}`}
-                                      className="text-red-600 text-sm hover:text-red-800"
-                                    >
-                                      Ver Perfil
-                                    </a>
-                                  </div>
-                                )}
-                              </div>
-                            ))}
-                        </div>
+                      <div className="p-4 flex justify-between items-center">
+                        <p>
+                          <b>{blog.title}</b>
+                        </p>
                       </div>
 
                       <div className="p-4 flex justify-between items-center">
-                        <p>{blog.body}</p>
+                        <p>{String(blog.comentary).substring(0, 150)}...</p>
                       </div>
 
                       <div className="p-4 flex justify-between items-center">
@@ -75,9 +66,30 @@ export default function Feed() {
                             Ver Más
                           </a>
                           <p className="mb-2 pl-2 text-xs font-semibold tracking-wide text-gray-600 uppercase">
-                            {blog.date.substring(0, 10)}
+                            {formatDate(blog.date)}
                           </p>
                         </div>
+                        {isEditable ? (
+                          <div className="p-4 flex justify-between items-center">
+                            <div className="flex flex-row items-center">
+                              <a
+                                href={`/editBlog/${blog.id}`}
+                                className="group mx-6 relative flex  justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                              >
+                                {" "}
+                                <AiFillEdit size={30} />
+                              </a>
+
+                              <button
+                                onClick={() => deleteHandler(blog.id)}
+                                className="group relative flex  justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+                              >
+                                {" "}
+                                <BsFillTrashFill size={30} />
+                              </button>
+                            </div>
+                          </div>
+                        ) : null}
                       </div>
                     </div>
                   </div>
