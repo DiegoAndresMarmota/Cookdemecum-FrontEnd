@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 //Iconos
 import { AiFillEdit } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
+import Feed from "./Feed";
 
 export default function MiPerfil() {
   const dispatch = useDispatch();
@@ -56,7 +57,7 @@ export default function MiPerfil() {
                 href={"/editProfile"}
                 className=" bg-red-600 py-1 px-5 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
               >
-                Editar
+                Modificar mi perfil
               </a>
             </h3>
           </center>
@@ -68,19 +69,19 @@ export default function MiPerfil() {
         <div className="border-t border-gray-200">
           <dl>
             <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dt className="text-sm font-medium text-gray-500">Usuario</dt>
+              <dt className="text-sm font-medium text-gray-500">Usuario:</dt>
               <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                 {userInfo.user_name}
               </dd>
             </div>
             <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dt className="text-sm font-medium text-gray-500">Email</dt>
+              <dt className="text-sm font-medium text-gray-500">Email:</dt>
               <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                 {userInfo.email}
               </dd>
             </div>
             <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dt className="text-sm font-medium text-gray-500">Acerca</dt>
+              <dt className="text-sm font-medium text-gray-500">Biografia:</dt>
               <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                 {userInfo.bio}
               </dd>
@@ -89,62 +90,9 @@ export default function MiPerfil() {
         </div>
       </div>
       <h2 className="mt-6 mb-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-        -- Posteos --
+        - Mis recetas -
       </h2>
-      {blogs.map((blog) => (
-        <>
-          {userInfo.user_name === blog.user && (
-            <div className="py-20 bg-gray-200">
-              <div className=" px-10">
-                <div className="max-w-md mx-auto bg-white shadow-lg rounded-md overflow-hidden md:max-w-md">
-                  <div className="md:flex">
-                    <div className="w-full">
-                      <div
-                        key={blog.id}
-                        className="flex justify-between items-center m-8"
-                      >
-                        <div className="flex flex-row items-center">
-                          <img
-                            src={`http://127.0.0.1:8080${userInfo.image}`}
-                            className="rounded-full"
-                            width="40"
-                          />
-                          <div className="flex flex-row items-center ml-2">
-                            <span className="font-bold mr-1">{blog.user}</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div></div>
-                      <div className="p-4 flex justify-between items-center">
-                        <p>{blog.body}</p>
-                      </div>
-                      <div className="p-4 flex justify-between items-center">
-                        <div className="flex flex-row items-center">
-                          <a
-                            href={`/editBlog/${blog.id}`}
-                            className="group mx-6 relative flex  justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-                          >
-                            {" "}
-                            <AiFillEdit size={30} />
-                          </a>
-
-                          <button
-                            onClick={() => deleteHandler(blog.id)}
-                            className="group relative flex  justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-                          >
-                            {" "}
-                            <BsFillTrashFill size={30} />
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-        </>
-      ))}
+      <Feed isEditable={true} />
     </div>
   );
 }
