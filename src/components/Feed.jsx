@@ -39,7 +39,7 @@ export default function Feed({ isEditable }) {
       ) : error ? (
         <Messages>{error}</Messages>
       ) : (
-        <div className="py-10 bg-gray-200">
+        <div className="py-10 bg-red-100">
           {blogs &&
             blogs.map((blog) => (
               <div className="py-8">
