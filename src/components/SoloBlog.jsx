@@ -45,7 +45,7 @@ export default function SoloBlog() {
       ) : (
         <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-6">
           <div>
-            <div className="py-10 bg-gray-200">
+            <div className="py-10 bg-red-100">
               <div className="py-8" key={blog.id}>
                 <div className="max-w-md mx-auto  bg-white shadow-lg rounded-md overflow-hidden md:max-w-md">
                   <div className="md:flex">
@@ -72,7 +72,7 @@ export default function SoloBlog() {
             </div>
 
             <h2 className="mt-6 mb-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-              Comentarios
+              Deja tu recomendación para este platillo
             </h2>
 
             <form onSubmit={submitHandler}>
@@ -94,7 +94,7 @@ export default function SoloBlog() {
                   type="submit"
                   className="inline-flex justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                 >
-                  Comentar
+                  ¿Qué te gustaria recomendar?
                 </button>
               </div>
             </form>
