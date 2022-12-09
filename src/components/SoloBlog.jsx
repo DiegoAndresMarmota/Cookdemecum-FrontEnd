@@ -23,11 +23,11 @@ export default function SoloBlog() {
   const { users } = userList;
 
   useEffect(() => {
-    if (success) {
-      setText("");
-      dispatch({ type: BLOG_CREATE_COMMENT_RESET });
-    }
-    dispatch(getListUsers());
+    // if (success) {
+    //   setText("");
+    //   dispatch({ type: BLOG_CREATE_COMMENT_RESET });
+    // }
+    // dispatch(getListUsers());
     dispatch(blogActionDetails(id));
   }, [dispatch, success]);
 
@@ -51,39 +51,11 @@ export default function SoloBlog() {
                   <div className="md:flex">
                     <div className="w-full">
                       <div className="flex justify-between items-center m-8">
-                        <div className="flex flex-row items-center">
-                          {users &&
-                            users.map((user) => (
-                              <div key={user.id}>
-                                {user.user_name === blog.user && (
-                                  <>
-                                    <div className="flex flex-row items-center ml-2">
-                                      <img
-                                        src={`http://127.0.0.1:8080${user.image}`}
-                                        className="rounded-full"
-                                        width="40"
-                                      />
-                                      <span className="font-bold mr-1 ml-2">
-                                        {blog.user}
-                                      </span>
-                                      <small className="h-1 w-1 bg-gray-300 rounded-full mr-1 mt-1"></small>
-                                      <a
-                                        style={{ textDecoration: "none" }}
-                                        href={`/userProfile/${user.id}`}
-                                        className="text-red-600 text-sm hover:text-red-800"
-                                      >
-                                        Ver Perfil
-                                      </a>
-                                    </div>
-                                  </>
-                                )}
-                              </div>
-                            ))}
-                        </div>
+                        <div className="flex flex-row items-center"></div>
                       </div>
 
                       <div className="p-4 flex justify-between items-center">
-                        <p>{blog.body}</p>
+                        <p>{blog.msg?.comentary}</p>
                       </div>
 
                       <div className="p-4 flex justify-between items-center">
@@ -100,7 +72,7 @@ export default function SoloBlog() {
             </div>
 
             <h2 className="mt-6 mb-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-              Publicaciones
+              Comentarios
             </h2>
 
             <form onSubmit={submitHandler}>

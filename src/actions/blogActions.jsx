@@ -147,7 +147,7 @@ export const blogActionDetails = (id) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.get(
-      `http://127.0.0.1:8080/blogs/editBlog/${id}`,
+      `http://127.0.0.1:8080/blogs/${id}`,
       config
     );
 
