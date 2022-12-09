@@ -217,7 +217,8 @@ export const listBlogs = () => async (dispatch, getState) => {
     const config = {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${userInfo.access_token}`,
+        user_id: userInfo.data.id,
       },
     };
 
@@ -233,10 +234,7 @@ export const listBlogs = () => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: BLOG_LIST_FAIL,
-      payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+      payload: error.response.data.msg,
     });
   }
 };
