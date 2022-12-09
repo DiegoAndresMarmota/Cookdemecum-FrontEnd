@@ -78,20 +78,18 @@ export const deleteBlogAction = (id) => async (dispatch, getState) => {
     };
 
     const { data } = await axios.delete(
-      `http://127.0.0.1:8080/delete/${id}`,
+      `http://127.0.0.1:8080/blogs/delete/${id}`,
       config
     );
 
     dispatch({
       type: BLOG_DELETE_SUCCESS,
+      payload: data,
     });
   } catch (error) {
     dispatch({
       type: BLOG_DELETE_FAIL,
-      payload:
-        error.response && error.response.data.detail
-          ? error.response.data.detail
-          : error.message,
+      payload: error.response.data.msg,
     });
   }
 };
