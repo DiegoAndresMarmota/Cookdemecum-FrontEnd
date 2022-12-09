@@ -15,6 +15,7 @@ export default function EditBlog() {
 
   const dispatch = useDispatch();
 
+  const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
   const soloBlog = useSelector((state) => state.soloBlog);
@@ -29,7 +30,15 @@ export default function EditBlog() {
     } else {
       dispatch(blogActionDetails(id));
     }
-  }, [dispatch, blog, id, success]);
+  }, [dispatch, id, success]);
+
+  useEffect(() => {
+    if (Object.keys(blog).length > 0) {
+      const { title, comentary } = blog.msg;
+      setTitle(title);
+      setBody(comentary);
+    }
+  }, [blog]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -71,7 +80,7 @@ export default function EditBlog() {
                         htmlFor="about"
                         className="block text-sm font-medium text-gray-700 pb-4"
                       >
-                        ¿Cómo te gustaría prepararlo?
+                        <p>{title}</p>
                       </label>
                       <div className="mt-1">
                         <textarea
