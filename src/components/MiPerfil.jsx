@@ -4,6 +4,7 @@ import Loader from "./Loader";
 import Messages from "./Messages";
 import { listBlogs, deleteBlogAction } from "../actions/blogActions";
 import { useParams } from "react-router-dom";
+import fotoPerfil from "../styles/chef_perfil.png";
 
 //Iconos
 import { AiFillEdit } from "react-icons/ai";
@@ -45,13 +46,14 @@ export default function MiPerfil() {
         <div className="px-4 py-5 sm:px-6">
           <center>
             <img
-              className="h-4 w-55 rounded-full"
-              src={`http://127.0.0.1:8080${userInfo.image}`}
-              alt=""
+              className="rounded-full h-44 w-44"
+              // src={`http://127.0.0.1:8080${userInfo.image}`}
+              src={fotoPerfil}
+              alt="chef"
             />
             <br></br>
             <h3 className="text-lg font-medium leading-6 text-gray-900">
-              {userInfo.user_name} &nbsp;&nbsp;&nbsp;&nbsp;
+              Hola Chef&nbsp;&nbsp;&nbsp;&nbsp;
               <a
                 style={{ textDecoration: "none" }}
                 href={"/editProfile"}
@@ -61,8 +63,8 @@ export default function MiPerfil() {
               </a>
             </h3>
           </center>
-          <p className="mt-1 max-w-2xl text-sm text-gray-500">
-            Detalles personales
+          <p className="mt-1 max-w-2xl text-lg text-black-500 font-bold">
+            Información Personal
           </p>
         </div>
 
@@ -89,9 +91,7 @@ export default function MiPerfil() {
           </dl>
         </div>
       </div>
-      <h2 className="mt-6 mb-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-        Mis recetas publicadas
-      </h2>
+      <h2 className="mt-6 mb-6 text-center text-3xl font-bold tracking-tight text-gray-900"></h2>
       <Feed isEditable={true} />
     </div>
   );

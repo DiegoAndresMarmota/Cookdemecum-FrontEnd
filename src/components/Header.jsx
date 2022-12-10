@@ -6,6 +6,7 @@ import { AiFillHome, AiFillPlusSquare } from "react-icons/ai";
 import { logout } from "../actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
 import cook from "../styles/cook.png";
+import fotoPerfil from "../styles/chef_perfil.png"
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -181,7 +182,8 @@ export default function Header() {
                           <span className="sr-only">Abrir menu</span>
                           <img
                             className="h-10 w-10 rounded-full"
-                            src={`http://127.0.0.1:8080${userInfo.image}`}
+                            // src={`http://127.0.0.1:8080${userInfo.image}`}
+                            src={fotoPerfil}
                             alt=""
                           />
                         </Menu.Button>

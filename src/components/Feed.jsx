@@ -7,6 +7,8 @@ import { listBlogs, deleteBlogAction } from "../actions/blogActions";
 
 import { AiFillEdit } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
+import ViewCard from "./ViewCard";
+import foto1 from "../styles/preparacion1.jpg";
 
 export default function Feed({ isEditable }) {
   const dispatch = useDispatch();
@@ -39,20 +41,20 @@ export default function Feed({ isEditable }) {
       ) : error ? (
         <Messages>{error}</Messages>
       ) : (
-        <div className="py-10 bg-red-100">
+        <div className="grid justify-items-center py-10 bg-red-100">
+          <ViewCard img={foto1} title="Bienvenido a tu recetario personal" />
           {blogs &&
             blogs.map((blog) => (
               <div className="py-8">
                 <div className="max-w-md mx-auto  bg-white shadow-lg rounded-md overflow-hidden md:max-w-md">
                   <div className="md:flex">
                     <div className="w-full">
-                      <div className="p-4 flex justify-between items-center">
+                      <div className="p-4 flex justify-between items-center align-baseline capitalize">
                         <p>
                           <b>{blog.title}</b>
                         </p>
                       </div>
-
-                      <div className="p-4 flex justify-between items-center">
+                      <div className="p-4 flex justify-between items-center align-baseline">
                         <p>{String(blog.comentary).substring(0, 150)}...</p>
                       </div>
 
