@@ -27,9 +27,13 @@ export default function Header() {
         <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
             <a href="/Landing">
-              <span className="sr-only">Tu Compañia</span>
-              <img className="h-12 w-auto sm:h-12" src={cook} alt="" />
+              <img
+                className="h-12 w-auto sm:h-12"
+                src={cook}
+                alt="icono-cook-demecum"
+              />
             </a>
+            <span className=" flex items-center font-bold pl-2 text-2xl">COOK-DEMECUM</span>
           </div>
           <div className="-my-2 -mr-2 md:hidden">
             <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-500">
@@ -54,9 +58,9 @@ export default function Header() {
                   <AiFillPlusSquare size={30} />
                 </a>
 
-                {/* <h3 className="bg-red-600 py-1 px-5 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 rounded mt-1">
+                <h3 className="bg-red-600 py-1 px-5 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 rounded mt-1 capitalize">
                   {userInfo.data.username}
-                </h3> */}
+                </h3>
 
                 <Menu as="div" className="relative ml-3">
                   <div>
