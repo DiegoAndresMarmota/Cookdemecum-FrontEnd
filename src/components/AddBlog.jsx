@@ -5,6 +5,8 @@ import { createBlogAction, listBlogs } from "../actions/blogActions";
 import Messages from "./Messages";
 import Loader from "./Loader";
 
+import FileBase64 from "react-file-base64";
+
 export default function AddBlog() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -14,10 +16,17 @@ export default function AddBlog() {
   const [body, setBody] = useState("");
   const [title, setTitle] = useState("");
 
+  const [img, setImg] = useState(null);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createBlogAction(title, body));
-    navigate(path);
+    console.log("photo: ", img);
+    // dispatch(createBlogAction(title, body, img));
+    // navigate(path);
+  };
+
+  const getFiles = (files) => {
+    setImg(files);
   };
 
   return (
@@ -39,6 +48,17 @@ export default function AddBlog() {
                   <div className="space-y-6 bg-white px-4 py-5 sm:p-6">
                     <div className="grid grid-cols-3 gap-6">
                       <div className="col-span-3 sm:col-span-2"></div>
+                    </div>
+
+                    <div className="rounded">
+                      <label
+                        htmlFor="about"
+                        className="block text-sm font-medium text-gray-700 my-3"
+                      >
+                        Foto:
+                      </label>
+                      <FileBase64 multiple={false} onDone={getFiles} />
+                      {img && <img src={img["base64"]} />}
                     </div>
 
                     <div className="rounded">
