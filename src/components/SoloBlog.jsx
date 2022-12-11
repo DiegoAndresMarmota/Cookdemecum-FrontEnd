@@ -55,6 +55,14 @@ export default function SoloBlog() {
                       </div>
 
                       <div className="p-4 flex justify-between items-center">
+                        <img src={blog.msg?.img} />
+                      </div>
+
+                      <div className="p-4 flex justify-between items-center">
+                        <p>{blog.msg?.title}</p>
+                      </div>
+
+                      <div className="p-4 flex justify-between items-center">
                         <p>{blog.msg?.comentary}</p>
                       </div>
 
