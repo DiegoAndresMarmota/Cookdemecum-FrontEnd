@@ -20,9 +20,8 @@ export default function AddBlog() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("photo: ", img);
-    // dispatch(createBlogAction(title, body, img));
-    // navigate(path);
+    dispatch(createBlogAction(title, body, img.base64));
+    navigate(path);
   };
 
   const getFiles = (files) => {
@@ -49,7 +48,6 @@ export default function AddBlog() {
                     <div className="grid grid-cols-3 gap-6">
                       <div className="col-span-3 sm:col-span-2"></div>
                     </div>
-
                     <div className="rounded">
                       <label
                         htmlFor="about"
@@ -57,10 +55,12 @@ export default function AddBlog() {
                       >
                         Foto:
                       </label>
-                      <FileBase64 multiple={false} onDone={getFiles} />
+                      <FileBase64
+                        multiple={false}
+                        onDone={getFiles}
+                      />
                       {img && <img src={img["base64"]} />}
                     </div>
-
                     <div className="rounded">
                       <label
                         htmlFor="about"
