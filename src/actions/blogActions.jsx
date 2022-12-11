@@ -163,40 +163,46 @@ export const blogActionDetails = (id) => async (dispatch, getState) => {
   }
 };
 
-export const createBlogAction = (title, body) => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: BLOG_CREATE_REQUEST,
-    });
+export const createBlogAction =
+  (title, body, img) => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: BLOG_CREATE_REQUEST,
+      });
 
-    const {
-      userLogin: { userInfo },
-    } = getState();
+      const {
+        userLogin: { userInfo },
+      } = getState();
 
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${userInfo.access_token}`,
-      },
-    };
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${userInfo.access_token}`,
+        },
+      };
 
-    const { data } = await axios.post(
-      "http://127.0.0.1:8080/post",
-      { user_id: userInfo.data.id, title: title, comentary: body },
-      config
-    );
+      const { data } = await axios.post(
+        "http://127.0.0.1:8080/post",
+        {
+          user_id: userInfo.data.id,
+          title: title,
+          comentary: body,
+          imgPost: img,
+        },
+        config
+      );
 
-    dispatch({
-      type: BLOG_CREATE_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    dispatch({
-      type: BLOG_CREATE_FAIL,
-      payload: error.response.data.msg,
-    });
-  }
-};
+      dispatch({
+        type: BLOG_CREATE_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: BLOG_CREATE_FAIL,
+        payload: error.response.data.msg,
+      });
+    }
+  };
 
 export const listBlogs = () => async (dispatch, getState) => {
   try {
