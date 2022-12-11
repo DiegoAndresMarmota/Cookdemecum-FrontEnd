@@ -5,6 +5,7 @@ import Messages from "./Messages";
 import { listBlogs, deleteBlogAction } from "../actions/blogActions";
 import { useParams } from "react-router-dom";
 import fotoPerfil from "../styles/chef_perfil.png";
+import modificarPlatillo from "../styles/modificar_platillo.png";
 
 //Iconos
 import { AiFillEdit } from "react-icons/ai";
@@ -24,6 +25,12 @@ export default function MiPerfil() {
     loading: loadingDelete,
     success: successDelete,
   } = deleteBlog;
+
+  const feedWelcomeProps = {
+    isEditable: true,
+    img: modificarPlatillo,
+    title: "Perfil",
+  };
 
   const { userInfo } = userLogin;
 
@@ -92,7 +99,7 @@ export default function MiPerfil() {
         </div>
       </div>
       <h2 className="mt-6 mb-6 text-center text-3xl font-bold tracking-tight text-gray-900"></h2>
-      <Feed isEditable={true} />
+      <Feed {...feedWelcomeProps} />
     </div>
   );
 }

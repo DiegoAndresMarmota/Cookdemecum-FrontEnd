@@ -7,20 +7,34 @@ import { listBlogs, deleteBlogAction } from "../actions/blogActions";
 
 import { AiFillEdit } from "react-icons/ai";
 import { BsFillTrashFill } from "react-icons/bs";
-import ViewCard from "./ViewCard";
+import FeedWelcome from "./ViewCard";
 import foto1 from "../styles/preparacion1.jpg";
+import { useState } from "react";
 
-export default function Feed({ isEditable }) {
+export default function Feed({ isEditable, img, title }) {
   const dispatch = useDispatch();
   const userList = useSelector((state) => state.userList);
   const { users } = userList;
   const blogList = useSelector((state) => state.blogList);
   const { error, loading, blogs } = blogList;
 
+  const [mainPicture, setMainPicture] = useState("");
+  const [titlePicture, setTitlePicture] = useState("");
+
   useEffect(() => {
     dispatch(getListUsers());
     dispatch(listBlogs());
   }, [dispatch]);
+
+  useEffect(() => {
+    if ((img === undefined) & (title === undefined)) {
+      setMainPicture(foto1);
+      setTitlePicture("Bienvenido a tu recetario personal");
+    } else {
+      setMainPicture(img);
+      setTitlePicture(title);
+    }
+  }, []);
 
   const formatDate = (date) => {
     return String(date)
@@ -42,7 +56,7 @@ export default function Feed({ isEditable }) {
         <Messages>{error}</Messages>
       ) : (
         <div className="grid justify-items-center py-10 bg-red-100">
-          <ViewCard img={foto1} title="Bienvenido a tu recetario personal" />
+          <FeedWelcome imgPost={mainPicture} titlePost={titlePicture} />
           {blogs &&
             blogs.map((blog) => (
               <div className="py-8">
