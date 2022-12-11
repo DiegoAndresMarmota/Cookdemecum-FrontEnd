@@ -153,7 +153,7 @@ export default function EditProfile() {
                           name="bio"
                           rows={3}
                           className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-500 focus:outline-none focus:ring-red-500 sm:text-sm"
-                          placeholder="Acerda de ti"
+                          placeholder="Acerca de ti"
                           defaultValue={""}
                         />
                       </div>

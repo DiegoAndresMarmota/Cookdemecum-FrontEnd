@@ -46,26 +46,24 @@ export default function SoloBlog() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 pt-6">
           <div>
             <div className="py-10 bg-red-100">
-              <div className="py-8" key={blog.id}>
-                <div className="max-w-md mx-auto  bg-white shadow-lg rounded-md overflow-hidden md:max-w-md">
+              <div className="py-0" key={blog.id}>
+                <div className="max-w-md mx-auto bg-white shadow-lg rounded-md overflow-hidden md:max-w-md">
                   <div className="md:flex">
                     <div className="w-full">
-                      <div className="flex justify-between items-center m-8">
+                      <div className="flex justify-between items-center m-1">
                         <div className="flex flex-row items-center"></div>
                       </div>
-
-                      <div className="p-4 flex justify-between items-center">
+                      <div className="p-4 flex justify-between items-center object-cover">
                         <img src={blog.msg?.img} />
                       </div>
-
-                      <div className="p-4 flex justify-between items-center">
+                      <div className="p-4 flex justify-between text-center font-bold capitalize text-2xl">
                         <p>{blog.msg?.title}</p>
                       </div>
-
-                      <div className="p-4 flex justify-between items-center">
-                        <p>{blog.msg?.comentary}</p>
+                      <div className="p-4 flex justify-between text-center leading-loose">
+                        <ul className="">
+                          <li>{blog.msg?.comentary}</li>
+                        </ul>
                       </div>
-
                       <div className="p-4 flex justify-between items-center">
                         <div className="flex flex-row items-center ">
                           <p className="mb-2 pl-2 text-xs font-semibold tracking-wide text-gray-600 uppercase">
@@ -79,8 +77,8 @@ export default function SoloBlog() {
               </div>
             </div>
 
-            <h2 className="mt-6 mb-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-              Deja tu recomendación para este platillo
+            <h2 className="mt-8 mb-6 text-center text-3xl font-bold tracking-tight text-gray-900">
+              ¿Deseas comentar algo más a esta receta?
             </h2>
 
             <form onSubmit={submitHandler}>
@@ -93,11 +91,11 @@ export default function SoloBlog() {
                     id="text"
                     rows={3}
                     className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-red-500 focus:outline-none focus:ring-red-500 sm:text-sm"
-                    placeholder="Escribe aqui!"
+                    placeholder="Comentalo aquí!"
                   />
                 </div>
               </div>
-              <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
+              <div className="bg-white px-4 py-3 text-right sm:px-6">
                 <button
                   type="submit"
                   className="inline-flex justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
