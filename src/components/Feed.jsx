@@ -63,8 +63,8 @@ export default function Feed({ isEditable, img, title }) {
                 <div className="max-w-md mx-auto  bg-white shadow-lg rounded-md overflow-hidden md:max-w-md">
                   <div className="md:flex">
                     <div className="w-full">
-                      <div className="p-4 flex justify-between items-center align-baseline capitalize">
-                        <p>
+                      <div className="flex p-4">
+                        <p className="flex justify-between text-center capitalize">
                           <b>{blog.title}</b>
                         </p>
                       </div>
@@ -79,7 +79,7 @@ export default function Feed({ isEditable, img, title }) {
                             href={`/soloBlog/${blog.id}`}
                             className="group relative flex  justify-center rounded-md border border-transparent bg-red-600 py-2 px-4 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
                           >
-                            Ver Más
+                            Ver Preparación
                           </a>
                           <p className="mb-2 pl-2 text-xs font-semibold tracking-wide text-gray-600 uppercase">
                             {formatDate(blog.date)}
