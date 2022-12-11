@@ -29,7 +29,7 @@ export default function MiPerfil() {
   const feedWelcomeProps = {
     isEditable: true,
     img: modificarPlatillo,
-    title: "Perfil",
+    title: "Bienvenido a tu perfil personal",
   };
 
   const { userInfo } = userLogin;
